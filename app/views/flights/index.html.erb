@@ -1,0 +1,41 @@
+<%= form_tag('/flights', method: :get) do %>
+<%= label_tag(:departing_airport_id, "Departing From:") %>
+<%= select_tag(:departing_airport_id, options_for_select(@depart)) %>
+<br>
+<%= label_tag(:arriving_airport_id, "Destination:") %>
+<%= select_tag(:arriving_airport_id, options_for_select(@depart)) %>
+<br>
+<%= label_tag(:passenger, "Passengers:") %>
+<%= select_tag(:passengers, options_for_select(@passengers)) %>
+<br>
+<%= label_tag(:departure_date, "Departure date:") %>
+<%= select_tag(:departure_date, options_for_select(@dates)) %>
+<br>
+<%= submit_tag "Search" %>
+<% end %>
+
+<%= form_tag("/bookings", method: :get) do %>
+<table style="width:100%">
+	<caption>Flights</caption>
+	<tr>
+		<th></th>
+		<th>Flight number</th>
+		<th>Departing from</th>
+		<th>Arriving at</th>
+		<th>Depature time</th>
+	</tr>
+	<tr>
+		<% if @exist %>
+		<% @flights.each do |f| %>
+		<td><%= radio_button_tag(:flight_id, f.id)  %></td>
+		<td><%= f.id %></td>
+		<td><%= f.departing_flight.full_name %></td>
+		<td><%= f.arriving_flight.full_name %></td>
+		<td><%= f.depature_date %></td>
+	</tr>
+	<% end %>
+</table> 
+<%= submit_tag "Accept" %>
+<% end %>
+<% end %>
+

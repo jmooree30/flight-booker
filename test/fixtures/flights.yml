@@ -3,11 +3,13 @@
 one:
   departing_airport_id: 1
   arrival_airport_id: 1
-  depature_date: 2017-11-30 19:46:16
-  arrival_date: 2017-11-30 19:46:16
+  depature_date: 2017-11-30 20:56:10
+  arrival_date: 2017-11-30 20:56:10
+  duration: MyString
 
 two:
   departing_airport_id: 1
   arrival_airport_id: 1
-  depature_date: 2017-11-30 19:46:16
-  arrival_date: 2017-11-30 19:46:16
+  depature_date: 2017-11-30 20:56:10
+  arrival_date: 2017-11-30 20:56:10
+  duration: MyString
