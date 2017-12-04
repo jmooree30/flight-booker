@@ -14,7 +14,8 @@
 <%= submit_tag "Search" %>
 <% end %>
 
-<%= form_tag("/bookings", method: :get) do %>
+<%= form_tag('bookings/new', method: :get) do %>
+<%= hidden_field_tag(:passengers, params[:passengers]) %>
 <table style="width:100%">
 	<caption>Flights</caption>
 	<tr>

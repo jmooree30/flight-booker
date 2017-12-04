@@ -1,0 +1,28 @@
+<table style="width:100%">
+	<tr>
+		<th>Flight #</th>
+		<th>Depature</th>
+		<th>Arrival</th>
+		<th>Duration</th>
+	</tr>
+	<tr>
+		<td><%= @flight.id %></td>
+		<td><%= @flight.depature_date %></td>
+		<td><%= @flight.arrival_date %></td>
+		<td><%= @flight.duration %></td>
+	</tr>
+</table>
+
+<%= form_for @booking do |f|  %>
+  <% params[:passengers].to_i.times do %>
+    <%= f.fields_for :passengers, @booking.passengers.build do |p| %>
+      <%= p.label "Name:" %><br>
+      <%= p.text_field :name, placeholder: "Name" %><br>
+      <%= p.label "Email:" %><br>
+      <%= p.text_field :email, placeholder: "Email" %><br><br>
+    <% end %>
+  <% end %>
+  <%= f.hidden_field(:flight_id, value: params[:flight_id]) %>
+  <%= f.submit %><br>
+<% end %>
+
