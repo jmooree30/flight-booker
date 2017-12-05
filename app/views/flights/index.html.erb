@@ -1,6 +1,10 @@
+<% if !@exist %>
 <div class="typewriter">
   <h1>Flight Booker.</h1>
 </div>
+<% else %>
+ <h1>Flight Booker.</h1>
+ <% end %>
 
 <div class='container'>
 <%= form_tag('/flights', method: :get) do %>
@@ -16,9 +20,9 @@
 <% end %>
 </div>
 
+<% if @exist %>
 <%= form_tag('bookings/new', method: :get) do %>
 <%= hidden_field_tag(:passengers, params[:passengers]) %>
-<% if @exist %>
 <div class="typewriter">
   <h1>Book today, fly tomorrow.</h1>
 </div>
@@ -42,7 +46,7 @@
 	</tr>
 	<% end %>
 </table> 
-<%= submit_tag('Sign Up', :class => 'btn btn-primary btn-block')  %>
+<%= submit_tag('Submit flight', :class => 'btn btn-primary btn-block')  %>
 <% end %>
 <% end %>
 </div>
