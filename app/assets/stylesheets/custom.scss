@@ -1,7 +1,68 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 th {
     text-align: left;
 }
 table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
+}
+
+.alert {
+   font-weight: bold;
+   -moz-border-radius: 4px 4px 4px 4px;
+   -webkit-border-radius: 4px 4px 4px 4px;
+   border-radius: 4px 4px 4px 4px;
+   margin-bottom: 18px;
+   padding: 12px 25px 12px 24px;
+   -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+   box-shadow: 3px 3px 1px 1px #CCCCCC;
+}
+
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+
+/* IE 6 */
+* html #footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+body{
+background-image: image-url("large.png")
+}
+
+.table {
+	background-color:white;
+}
+
+.form-control {
+   width: 240px;
+   height: 34px;
+   }
+
+   .typewriter h1 {
+  font-size:40px;
+  text-align:center;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }

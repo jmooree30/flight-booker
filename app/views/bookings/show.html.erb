@@ -1,0 +1,12 @@
+<div class='container'>
+<%= @departing.full_name %><br>
+<%= @arriving.full_name %><br>
+
+<% @passengers.each do |f| %>
+	<%= f.name %><br>
+	<%= f.email %><br>
+	<%end%>
+</div>
+
+
+

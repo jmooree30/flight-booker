@@ -1,11 +1,12 @@
-<table style="width:100%">
-	<tr>
+<div class='container'>
+ <table class="table table-hover">
+	<tr class='info'>
 		<th>Flight #</th>
 		<th>Depature</th>
 		<th>Arrival</th>
 		<th>Duration</th>
 	</tr>
-	<tr>
+	<tr class='active'>
 		<td><%= @flight.id %></td>
 		<td><%= @flight.depature_date %></td>
 		<td><%= @flight.arrival_date %></td>
@@ -25,4 +26,6 @@
   <%= f.hidden_field(:flight_id, value: params[:flight_id]) %>
   <%= f.submit %><br>
 <% end %>
+</div>
+
 
