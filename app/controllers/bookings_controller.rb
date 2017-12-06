@@ -5,6 +5,10 @@ class BookingsController < ApplicationController
 	def new
 		@flight = Flight.find_by(id: params[:flight_id])
 		@booking = Booking.new
+    if params[:flight_id].nil?
+      flash[:info]="Please select a flight."
+      redirect_to root_path
+    end
 	end 
 
 	def create
