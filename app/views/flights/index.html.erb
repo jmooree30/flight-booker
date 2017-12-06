@@ -1,52 +1,57 @@
 <% if !@exist %>
 <div class="typewriter">
-  <h1>Flight Booker.</h1>
+	<h1>Flight Booker.</h1>
 </div>
 <% else %>
- <h1>Flight Booker.</h1>
- <% end %>
+<h1>Flight Booker.</h1>
+<% end %>
 
 <div class='container'>
-<%= form_tag('/flights', method: :get) do %>
-<%= label_tag(:departing_airport_id, "Departing From:") %>
-<%= select_tag(:departing_airport_id, options_for_select(@depart),{:class => 'form-control'}) %>
-<%= label_tag(:arriving_airport_id, "Destination:") %>
-<%= select_tag(:arriving_airport_id, options_for_select(@depart),{:class => 'form-control'}) %>
-<%= label_tag(:passenger, "Passengers:") %>
-<%= select_tag(:passengers, options_for_select(@passengers),{:class => 'form-control'}) %>
-<%= label_tag(:departure_date, "Departure date:") %>
-<%= select_tag(:departure_date, options_for_select(@dates),{:class => 'form-control'}) %>
-<%= submit_tag("Search", :class => 'btn btn-primary') %>
-<% end %>
+
+	<%= form_tag('/flights', method: :get) do %>
+	<%= label_tag(:departing_airport_id, "Departing From:") %>
+	<%= select_tag(:departing_airport_id, options_for_select(@depart),{:class => 'form-control'}) %>
+	<%= label_tag(:arriving_airport_id, "Destination:") %>
+	<%= select_tag(:arriving_airport_id, options_for_select(@depart),{:class => 'form-control'}) %>
+	<%= label_tag(:passenger, "Passengers:") %>
+	<%= select_tag(:passengers, options_for_select(@passengers),{:class => 'form-control'}) %>
+	<%= label_tag(:departure_date, "Departure date:") %>
+	<%= select_tag(:departure_date, options_for_select(@dates),{:class => 'form-control'}) %>
+	<%= submit_tag("Search", :class => 'btn btn-primary') %>
+	<% end %>
 </div>
 
 <% if @exist %>
 <%= form_tag('bookings/new', method: :get) do %>
 <%= hidden_field_tag(:passengers, params[:passengers]) %>
 <div class="typewriter">
-  <h1>Book today, fly tomorrow.</h1>
-</div>
-<div class='container'>
- <table class="table table-hover">
-	<tr class='info'>
-		<th></th>
-		<th>Flight number</th>
-		<th>Departing from</th>
-		<th>Arriving at</th>
-		<th>Depature time</th>
-	</tr>
-	<% @flights.each do |f| %>
-	<tr class='active'>
-		<td><%= radio_button_tag(:flight_id, f.id, checked: true)  %></td>
-		<td><%= f.id %></td>
-		<td><%= f.departing_flight.full_name %></td>
-		<td><%= f.arriving_flight.full_name %></td>
-		<td><%= f.depature_date %></td>
-	</tr>
-	<% end %>
-</table> 
-<%= submit_tag('Submit flight', :class => 'btn btn-primary btn-block')  %>
-<% end %>
-<% end %>
+	<h2>Book today, fly tomorrow.</h2>
 </div>
 
+<div class='row'>
+	<div class='table-responsive'>
+		<div class='container'>
+			<table class="table table-hover">
+				<tr class='info'>
+					<th></th>
+					<th>Flight number</th>
+					<th>Departing from</th>
+					<th>Arriving at</th>
+					<th>Depature time</th>
+				</tr>
+				<% @flights.each do |f| %>
+				<tr class='active'>
+					<td><%= radio_button_tag(:flight_id, f.id, checked: true)  %></td>
+					<td><%= f.id %></td>
+					<td><%= f.departing_flight.full_name %></td>
+					<td><%= f.arriving_flight.full_name %></td>
+					<td><%= f.depature_date %></td>
+				</tr>
+				<% end %>
+			</table> 
+			<%= submit_tag('Submit flight', :class => 'btn btn-primary btn-block')  %>
+			<% end %>
+			<% end %>
+		</div>
+	</div>
+</div>
