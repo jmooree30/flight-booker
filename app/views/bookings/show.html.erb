@@ -1,12 +1,30 @@
-<div class='container'>
-<%= @departing.full_name %><br>
-<%= @arriving.full_name %><br>
 
-<% @passengers.each do |f| %>
-	<%= f.name %><br>
-	<%= f.email %><br>
-	<%end%>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading">Transaction complete<br>
+    <%= @departing.full_name %>
+    <span class="glyphicon glyphicon-plane"></span>
+    <%= @arriving.full_name %></div>
+  
+<table class="table table-hover">
+	<tr class='info'>
+		<th>Name</th>
+		<th>Email</th>
+	</tr>
+	<% @passengers.each do |f| %>
+	<tr class='active'>
+		<td><%= f.name  %></td>
+		<td><%= f.email %></td>
+	</tr>
+	<% end %>
+</table> 
 </div>
-
+<div class='default'>
+<div class="btn btn-default">
+<%= link_to 'Home', root_path, :class => "btn" %>
+</div>
+</div>
 
 

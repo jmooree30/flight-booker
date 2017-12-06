@@ -9,7 +9,7 @@ class FlightsController < ApplicationController
 			@exist = Flight.where(departing_airport_id: params[:departing_airport_id],
 				arrival_airport_id: params[:arriving_airport_id])
 			@flights = @exist.all
-		end
+		end 
 	end
 
 end

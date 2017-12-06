@@ -21,13 +21,18 @@ table, th, td {
    box-shadow: 3px 3px 1px 1px #CCCCCC;
 }
 
+.header{
+	text-align:center;
+	font-size:40px;
+}
+
 #footer {
    position:fixed;
    left:0px;
    bottom:0px;
    height:30px;
    width:100%;
-   background:#999;
+   background:#337ab7;
 }
 
 /* IE 6 */
@@ -37,7 +42,8 @@ table, th, td {
 }
 
 body{
-background-image: image-url("large.png")
+background-image: image-url("large.png");
+
 }
 
 .table {
@@ -70,4 +76,25 @@ background-image: image-url("large.png")
 h1{
 	  font-size:40px;
   text-align:center;
+}
+
+.passengers{
+	font-size:18px;
+	font-weight:bold;
+}
+
+.panel-heading{
+	text-align:center;
+	font-size:24px;
+}
+
+.panel-body{
+	font-size:20px;
+	font-weight:bold;
+}
+
+.default{
+    left:47%;
+	text-align:center;
+	position:absolute;
 }
