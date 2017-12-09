@@ -14,9 +14,15 @@ class BookingsController < ApplicationController
 	def create
         @flight = Flight.find_by(id: booking_params[:flight_id])
         @booking = @flight.bookings.build(booking_params)
+        
         if @booking.save
-        	redirect_to @booking
-          flash[:info] = "Booking successful"
+          @booking.passengers.each do |f|
+            # Tell the UserMailer to send a welcome email after save
+            UserMailer.welcome_email(f).deliver_later
+          end 
+            redirect_to @booking
+            flash[:info] = "Booking successful"
+          
         else
           flash[:error] = "Invalid name/email, please try again."
           redirect_to root_path
