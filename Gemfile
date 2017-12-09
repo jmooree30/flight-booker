@@ -25,6 +25,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "letter_opener"
   gem 'web-console',           '3.5.1'
   gem 'listen',                '3.0.8'
   gem 'spring',                '2.0.2'
